@@ -1,23 +1,29 @@
-﻿<Window x:Class="_0004_wpf.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="_0004_wpf.MainWindow"
         Title="База Української правди" Height="350" Width="525">
-    <Menu VerticalAlignment="Top" Margin="0,0,2,0">
-        <MenuItem Header="База даних">
-            <MenuItem Header="Створити"></MenuItem>
-            <MenuItem Header="Відкрити"></MenuItem>
-            <MenuItem Header="Зберегти"></MenuItem>
-        </MenuItem>
-        <MenuItem Header="Додати">
-            <MenuItem Header="Статтю"></MenuItem>
-            <MenuItem Header="Автора"></MenuItem>
-            <MenuItem Header="Коментар"/>
-        </MenuItem>
-        <MenuItem Header="Змінити статтю"/>
-        <MenuItem Header="Пошук"/>
-        <MenuItem Header="Довідка">
-            <MenuItem Header="Допомога"/>
-            <MenuItem Header="Про програму"/>
-        </MenuItem>
-    </Menu>
+    <Canvas>
+        <Menu x:Name="topMenu" BorderThickness="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14">
+            <MenuItem x:Name="menu_dataBase" Header="База даних">
+                <MenuItem x:Name="menu_openDB" Header="Відкрити"/>
+            </MenuItem>
+            <MenuItem x:Name="menu_add" Header="Додати">
+                <MenuItem x:Name="menu_addArticle" Header="Статтю" Click="menu_addArticle_Click"/>
+                <MenuItem x:Name="menu_addAuthor" Header="Автора"/>
+                <MenuItem x:Name="menu_addComment" Header="Коментар"/>
+            </MenuItem>
+            <MenuItem x:Name="menu_change" Header="Змінити">
+                <MenuItem Header="Змінити дані"/>
+                <Separator/>
+                <MenuItem Header="Видалити"/>
+            </MenuItem>
+            <MenuItem x:Name="menu_find" Header="Пошук"/>
+            <MenuItem x:Name="menu_stat" Header="Статистика"/>
+            <MenuItem x:Name="menu_info" Header="Довідка">
+                <MenuItem x:Name="menu_help" Header="Допомога"/>
+                <MenuItem x:Name="menu_about" Header="Про програму"/>
+            </MenuItem>
+        </Menu>
+    </Canvas>
 </Window>
