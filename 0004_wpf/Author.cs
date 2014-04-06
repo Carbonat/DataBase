@@ -8,12 +8,8 @@ namespace _0004_wpf
 {
     public class Author
     {
-        string FirstName { get; set; }
-        string SecondName { get; set; }
-
-        public Author()
-        {
-            FirstName = @"Редакція сайту";
-        }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Id { get; set; }
     }
 }

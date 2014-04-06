@@ -1,8 +1,12 @@
 ﻿<Window x:Class="_0004_wpf.AddArticle"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:_0004_wpf"
         Title="Додати статтю" Height="464.875" Width="500">
-    <Grid>
+    <Window.Resources>
+        <local:DefaultValue x:Key="defaultValue"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource defaultValue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="25"/>
@@ -18,12 +22,12 @@
         </Grid.RowDefinitions>
         <TextBox x:Name="title" TextWrapping="Wrap" VerticalContentAlignment="Center" FontSize="14" GotFocus="title_GotFocus" LostFocus="title_LostFocus" Foreground="Gray" Text="{Binding DefaultTitle, Mode=OneWay}" Margin="5,0" Grid.Row="1"/>
         <TextBox x:Name="firstName" HorizontalAlignment="Left" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" FontSize="14" GotFocus="firstName_GotFocus" LostFocus="firstName_LostFocus" Text="{Binding DefaultFirstName, Mode=OneWay}" Foreground="Gray" Margin="5,0,0,0" Grid.Row="3"/>
-        <TextBox x:Name="secondName" HorizontalAlignment="Left" Margin="130,0,0,0" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" FontSize="14" GotFocus="secondName_GotFocus" LostFocus="secondName_LostFocus" Text="{Binding DefaultSecondName, Mode=OneWay}" Foreground="Gray" HorizontalScrollBarVisibility="Visible" Grid.Row="3"/>
+        <TextBox x:Name="secondName" HorizontalAlignment="Left" Margin="130,0,0,0" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" FontSize="14" GotFocus="secondName_GotFocus" LostFocus="secondName_LostFocus" Text="{Binding DefaultSurName, Mode=OneWay}" Foreground="Gray" HorizontalScrollBarVisibility="Visible" Grid.Row="3"/>
         <TextBox x:Name="date" HorizontalAlignment="Left" Margin="255,0,0,0" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" FontSize="14" LostFocus="date_LostFocus" GotFocus="date_GotFocus" Text="{Binding DefaultDate, Mode=OneWay}" Foreground="Gray" Grid.Row="3"/>
         <RichTextBox x:Name="article" FontSize="14" GotFocus="article_GotFocus" Foreground="Gray" LostFocus="article_LostFocus" Margin="5,1,5,0" Grid.Row="5">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="{Binding Path=DefaultArticle, Mode=OneWay}"/>
+                    <Run Text="{Binding DefaultArticle, Mode=OneWay}"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>

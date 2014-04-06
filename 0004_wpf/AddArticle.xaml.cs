@@ -16,65 +16,9 @@ namespace _0004_wpf
 {
     public partial class AddArticle : Window
     {
-
-        public const string defaultAdress = "Додати статтю автоматично ввівши посилання на неї";
-        public const string defaultFirstName = "Ім'я автора";
-        public const string defaultSecondName = "Прізвище автора";
-        public const string defaultTitle = "Заголовок";
-        public const string defaultArticle = "Текст статті";
-        public const string defaultDate = "Час публікації";
-        public const string defaultComment = "Немає жодного коментаря";
-
-        public string DefaultAdress
-        {
-            get
-            {
-                return defaultAdress;
-            }
-        }
-        public string DefaultFirstName
-        {
-            get
-            {
-                return defaultFirstName;
-            }
-        }
-        public string DefaultSecondName
-        {
-            get
-            {
-                return defaultSecondName;
-            }
-        }
-        public string DefaultTitle
-        {
-            get
-            {
-                return defaultTitle;
-            }
-        }
-        public string DefaultArticle
-        {
-            get
-            {
-                return defaultArticle;
-            }
-        }
-        public string DefaultDate
-        {
-            get
-            {
-                return defaultDate;
-            }
-        }
-        public string DefaultComment
-        {
-            get
-            {
-                return defaultComment;
-            }
-        }
-
+        Effects effs = new Effects();
+        DefaultValue dv = new DefaultValue();
+        
         public List<Comment> comments = new List<Comment>();
         public List<Comment> Comments
         {
@@ -83,7 +27,6 @@ namespace _0004_wpf
                 return comments;
             }
         }
-
 
         public AddArticle()
         {
@@ -119,77 +62,52 @@ namespace _0004_wpf
 
         private void firstName_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxGotFocus(sender as TextBox, defaultFirstName);
+            effs.TextBoxGotFocus(sender as TextBox, dv.DefaultFirstName);
         }
 
         private void firstName_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxLostFocus(sender as TextBox, defaultFirstName);
+            effs.TextBoxLostFocus(sender as TextBox, dv.DefaultFirstName);
         }
 
         private void secondName_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxLostFocus(sender as TextBox, defaultSecondName);
+            effs.TextBoxLostFocus(sender as TextBox, dv.DefaultSurName);
         }
 
         private void secondName_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxGotFocus(sender as TextBox, defaultSecondName);
+            effs.TextBoxGotFocus(sender as TextBox, dv.DefaultSurName);
         }
 
         private void date_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxGotFocus(sender as TextBox, defaultDate);
+            effs.TextBoxGotFocus(sender as TextBox, dv.DefaultDate);
         }
 
         private void date_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxLostFocus(sender as TextBox, defaultDate);
+            effs.TextBoxLostFocus(sender as TextBox, dv.DefaultDate);
         }
 
         private void title_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxGotFocus(sender as TextBox, defaultTitle);
+            effs.TextBoxGotFocus(sender as TextBox, dv.DefaultTitle);
         }
 
         private void title_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxLostFocus(sender as TextBox, defaultTitle);
+            effs.TextBoxLostFocus(sender as TextBox, dv.DefaultTitle);
         }
 
         private void article_GotFocus(object sender, RoutedEventArgs e)
         {
-            RichTextBox rtb = sender as RichTextBox;
-            TextRange tr = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-            if (tr.Text.Equals(defaultArticle + "\r\n", StringComparison.OrdinalIgnoreCase) && rtb.Foreground == Brushes.Gray)
-            {
-                FlowDocument document = new FlowDocument();
-                Paragraph paragraph = new Paragraph();
-
-                paragraph.Inlines.Add(string.Empty);
-                document.Blocks.Add(paragraph);
-
-                rtb.Document = document;
-                rtb.Foreground = Brushes.Black;
-            }
+            effs.RichTextBoxGotFocus(sender as RichTextBox, dv.DefaultArticle);
         }
 
         private void article_LostFocus(object sender, RoutedEventArgs e)
         {
-            RichTextBox rtb = sender as RichTextBox;
-            TextRange tr = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-
-            if (string.IsNullOrWhiteSpace(tr.Text))
-            {
-                FlowDocument document = new FlowDocument();
-                Paragraph paragraph = new Paragraph();
-
-                paragraph.Inlines.Add(defaultArticle);
-                document.Blocks.Add(paragraph);
-
-                rtb.Document = document;
-                rtb.Foreground = Brushes.Gray;
-            }
+            effs.RichTextBoxLostFocus(sender as RichTextBox, dv.DefaultArticle);
         }
     }
 }
