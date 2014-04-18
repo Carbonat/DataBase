@@ -18,12 +18,10 @@ using System.Configuration;
 
 namespace _0004_wpf
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         AddArticle addArticle;
+        OpenArticle openArticle;
         AddAuthor addAuthor;
         AddCommenter addCommenter;
         AddComment addComment;
@@ -34,10 +32,6 @@ namespace _0004_wpf
         {
             InitializeComponent();
 
-            addArticle = new AddArticle();
-            addAuthor = new AddAuthor();
-            addCommenter = new AddCommenter();
-            addComment = new AddComment();
             articles = new List<Article>();
 
             UpdateListView();
@@ -45,23 +39,23 @@ namespace _0004_wpf
 
         private void menu_addArticle_Click(object sender, RoutedEventArgs e)
         {
-            if(!addArticle.IsVisible)
-                addArticle.Show();
+            addArticle = new AddArticle();
+            addArticle.Show();
         }
         private void menu_addAuthor_Click(object sender, RoutedEventArgs e)
         {
-            if(!addAuthor.IsVisible)
-                addAuthor.Show();
+            addAuthor = new AddAuthor();
+            addAuthor.Show();
         }
         private void menu_addCommenter_Click(object sender, RoutedEventArgs e)
         {
-            if(!addCommenter.IsVisible)
-                addCommenter.Show();
+            addCommenter = new AddCommenter();
+            addCommenter.Show();
         }
         private void menu_addComment_Click(object sender, RoutedEventArgs e)
         {
-            if(!addComment.IsVisible)
-                addComment.Show();
+            addComment = new AddComment();
+            addComment.Show();
         }
         private void FillListFromDataSet()
         {
@@ -70,7 +64,6 @@ namespace _0004_wpf
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 CmdString = "SELECT ARTICLES.ART_ID, ARTICLES.TITLE, ARTICLES.TEXT, ARTICLES.TIME, AUTHORS.AU_ID, AUTHORS.FIRST_NAME, AUTHORS.LAST_NAME FROM ARTICLES, AUTHORS, ARTICLES_AUTHORS WHERE ARTICLES.ART_ID = ARTICLES_AUTHORS.ART_ID AND ARTICLES_AUTHORS.AU_ID = AUTHORS.AU_ID";
-                //COUNT(ARTICLES_COMMENTS.COMM_ID) ARTICLES_COMMENTS     AND ARTICLES.ART_ID = ARTICLES_COMMENTS.ART_ID
                 SqlCommand cmd = new SqlCommand(CmdString, con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable("Articles");
@@ -95,19 +88,24 @@ namespace _0004_wpf
             
             for (int i = 0; i < articles.Count; ++i)
             {
-                articlesListView.Items.Add(new Article { Date = articles[i].Date,
-                                                            Title = articles[i].Title,
-                                                            Text = articles[i].Text,
-                                                            Creator = articles[i].Creator,
-                                                            ReturnCreatorName = articles[i].ReturnCreatorName} );
+                articlesListView.Items.Add(articles[i]);
             }
         }
 
         private void UpdateListView()
         {
             articlesListView.Items.Clear();
+            articles.Clear();
             FillListFromDataSet();
             FillListView();
+        }
+
+        private void articlesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            Article ar = lv.SelectedItem as Article;
+            openArticle = new OpenArticle(ar);
+            openArticle.Show();
         }
     }
 }

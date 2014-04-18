@@ -16,7 +16,7 @@ namespace _0004_wpf
                 return "Ім'я автора";
             }
         }
-        public string DefaultSurName
+        public string DefaultLastName
         {
             get
             {
@@ -65,6 +65,52 @@ namespace _0004_wpf
                 return "Ім'я коментатора";
             }
         }
-
+        public string TodaysDateStr
+        {
+            get
+            {
+                DateTime dt = DateTime.Today;
+                return dt.ToString();
+            }
+        }
+        public DateTime TodaysDate
+        {
+            get { return DateTime.Today; }
+        }
+        public string DefaultAddArtTitle
+        {
+            get
+            {
+                return "Додати статтю";
+            }
+        }
+        public string DefaultChangeArtTitle
+        {
+            get
+            {
+                return "Змінити статтю";
+            }
+        }
+        public int MaxLengthTitle
+        {
+            get { return 150; }
+        }
+        public int MaxLengthAuthName
+        {
+            get { return 50; }
+        }
+        public int MaxLengthNickName
+        {
+            get { return 50; }
+        }
+        public int MaxLengthComment
+        {
+            get { return 1000; }
+        }
+        public string HelpText
+        {
+            get { return "Довідка"; }
+        }
+        public DateTime DateStart { get; set; }
     }
 }

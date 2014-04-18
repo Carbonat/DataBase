@@ -4,6 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="MainWindow1" mc:Ignorable="d" x:Class="_0004_wpf.MainWindow"
         Title="Газета факультету" Height="404" Width="676.5">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="65*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="5"/>
@@ -16,11 +20,6 @@
                 <MenuItem x:Name="menu_addCommenter" Header="Коментатора" Click="menu_addCommenter_Click"/>
                 <MenuItem x:Name="menu_addComment" Header="Коментар" Click="menu_addComment_Click"/>
             </MenuItem>
-            <MenuItem x:Name="menu_change" Header="Змінити">
-                <MenuItem Header="Змінити дані"/>
-                <Separator/>
-                <MenuItem Header="Видалити"/>
-            </MenuItem>
             <MenuItem x:Name="menu_find" Header="Пошук"/>
             <MenuItem x:Name="menu_stat" Header="Статистика"/>
             <MenuItem x:Name="menu_info" Header="Довідка">
@@ -28,10 +27,10 @@
                 <MenuItem x:Name="menu_about" Header="Про програму"/>
             </MenuItem>
         </Menu>
-        <ListView x:Name="articlesListView" Margin="10,0,10,10" Grid.Row="2">
+        <ListView x:Name="articlesListView" Margin="10,0,10,10" Grid.Row="2" MouseDoubleClick="articlesListView_MouseDoubleClick" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}" Width="70"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding DateString}" Width="70"/>
                     <GridViewColumn Header="Заголовок" DisplayMemberBinding="{Binding Title}" Width="100"/>
                     <GridViewColumn Header="Текст" DisplayMemberBinding="{Binding Text}" Width="300"/>
                     <GridViewColumn Header="Автор" DisplayMemberBinding="{Binding ReturnCreatorName}"/>

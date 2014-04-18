@@ -274,29 +274,6 @@ SELECT COMMENTER_ID, NICKNAME FROM COMMENTERS WHERE (COMMENTER_ID = @COMMENTER_I
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MainWindowTableAdapter" GeneratorDataComponentClassName="MainWindowTableAdapter" Name="MainWindow" UserDataComponentName="MainWindowTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="DBNewspaperConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        AUTHORS.FIRST_NAME, AUTHORS.LAST_NAME, ARTICLES.TITLE, ARTICLES.TEXT, ARTICLES.TIME
-FROM            ARTICLES INNER JOIN
-                         ARTICLES_AUTHORS ON ARTICLES.ART_ID = ARTICLES_AUTHORS.ART_ID INNER JOIN
-                         AUTHORS ON ARTICLES_AUTHORS.AU_ID = AUTHORS.AU_ID</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="FIRST_NAME" DataSetColumn="FIRST_NAME" />
-              <Mapping SourceColumn="LAST_NAME" DataSetColumn="LAST_NAME" />
-              <Mapping SourceColumn="TITLE" DataSetColumn="TITLE" />
-              <Mapping SourceColumn="TEXT" DataSetColumn="TEXT" />
-              <Mapping SourceColumn="TIME" DataSetColumn="TIME" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -305,7 +282,7 @@ FROM            ARTICLES INNER JOIN
   <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet" msprop:Generator_UserDSName="DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ARTICLES" msprop:Generator_TableClassName="ARTICLESDataTable" msprop:Generator_TableVarName="tableARTICLES" msprop:Generator_TablePropName="ARTICLES" msprop:Generator_RowDeletingName="ARTICLESRowDeleting" msprop:Generator_RowChangingName="ARTICLESRowChanging" msprop:Generator_RowEvHandlerName="ARTICLESRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLESRowDeleted" msprop:Generator_UserTableName="ARTICLES" msprop:Generator_RowChangedName="ARTICLESRowChanged" msprop:Generator_RowEvArgName="ARTICLESRowChangeEvent" msprop:Generator_RowClassName="ARTICLESRow">
+        <xs:element name="ARTICLES" msprop:Generator_TableClassName="ARTICLESDataTable" msprop:Generator_TableVarName="tableARTICLES" msprop:Generator_RowChangedName="ARTICLESRowChanged" msprop:Generator_TablePropName="ARTICLES" msprop:Generator_RowDeletingName="ARTICLESRowDeleting" msprop:Generator_RowChangingName="ARTICLESRowChanging" msprop:Generator_RowEvHandlerName="ARTICLESRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLESRowDeleted" msprop:Generator_RowClassName="ARTICLESRow" msprop:Generator_UserTableName="ARTICLES" msprop:Generator_RowEvArgName="ARTICLESRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ART_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnART_ID" msprop:Generator_ColumnPropNameInRow="ART_ID" msprop:Generator_ColumnPropNameInTable="ART_IDColumn" msprop:Generator_UserColumnName="ART_ID" type="xs:int" />
@@ -327,7 +304,7 @@ FROM            ARTICLES INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ARTICLES_AUTHORS" msprop:Generator_TableClassName="ARTICLES_AUTHORSDataTable" msprop:Generator_TableVarName="tableARTICLES_AUTHORS" msprop:Generator_RowChangedName="ARTICLES_AUTHORSRowChanged" msprop:Generator_TablePropName="ARTICLES_AUTHORS" msprop:Generator_RowDeletingName="ARTICLES_AUTHORSRowDeleting" msprop:Generator_RowChangingName="ARTICLES_AUTHORSRowChanging" msprop:Generator_RowEvHandlerName="ARTICLES_AUTHORSRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLES_AUTHORSRowDeleted" msprop:Generator_RowClassName="ARTICLES_AUTHORSRow" msprop:Generator_UserTableName="ARTICLES_AUTHORS" msprop:Generator_RowEvArgName="ARTICLES_AUTHORSRowChangeEvent">
+        <xs:element name="ARTICLES_AUTHORS" msprop:Generator_TableClassName="ARTICLES_AUTHORSDataTable" msprop:Generator_TableVarName="tableARTICLES_AUTHORS" msprop:Generator_TablePropName="ARTICLES_AUTHORS" msprop:Generator_RowDeletingName="ARTICLES_AUTHORSRowDeleting" msprop:Generator_RowChangingName="ARTICLES_AUTHORSRowChanging" msprop:Generator_RowEvHandlerName="ARTICLES_AUTHORSRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLES_AUTHORSRowDeleted" msprop:Generator_UserTableName="ARTICLES_AUTHORS" msprop:Generator_RowChangedName="ARTICLES_AUTHORSRowChanged" msprop:Generator_RowEvArgName="ARTICLES_AUTHORSRowChangeEvent" msprop:Generator_RowClassName="ARTICLES_AUTHORSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ART_ID" msprop:Generator_ColumnVarNameInTable="columnART_ID" msprop:Generator_ColumnPropNameInRow="ART_ID" msprop:Generator_ColumnPropNameInTable="ART_IDColumn" msprop:Generator_UserColumnName="ART_ID" type="xs:int" />
@@ -335,7 +312,7 @@ FROM            ARTICLES INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COMMENTS" msprop:Generator_TableClassName="COMMENTSDataTable" msprop:Generator_TableVarName="tableCOMMENTS" msprop:Generator_RowChangedName="COMMENTSRowChanged" msprop:Generator_TablePropName="COMMENTS" msprop:Generator_RowDeletingName="COMMENTSRowDeleting" msprop:Generator_RowChangingName="COMMENTSRowChanging" msprop:Generator_RowEvHandlerName="COMMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="COMMENTSRowDeleted" msprop:Generator_RowClassName="COMMENTSRow" msprop:Generator_UserTableName="COMMENTS" msprop:Generator_RowEvArgName="COMMENTSRowChangeEvent">
+        <xs:element name="COMMENTS" msprop:Generator_TableClassName="COMMENTSDataTable" msprop:Generator_TableVarName="tableCOMMENTS" msprop:Generator_TablePropName="COMMENTS" msprop:Generator_RowDeletingName="COMMENTSRowDeleting" msprop:Generator_RowChangingName="COMMENTSRowChanging" msprop:Generator_RowEvHandlerName="COMMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="COMMENTSRowDeleted" msprop:Generator_UserTableName="COMMENTS" msprop:Generator_RowChangedName="COMMENTSRowChanged" msprop:Generator_RowEvArgName="COMMENTSRowChangeEvent" msprop:Generator_RowClassName="COMMENTSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="COMM_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCOMM_ID" msprop:Generator_ColumnPropNameInRow="COMM_ID" msprop:Generator_ColumnPropNameInTable="COMM_IDColumn" msprop:Generator_UserColumnName="COMM_ID" type="xs:int" />
@@ -351,7 +328,7 @@ FROM            ARTICLES INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ARTICLES_COMMENTS" msprop:Generator_TableClassName="ARTICLES_COMMENTSDataTable" msprop:Generator_TableVarName="tableARTICLES_COMMENTS" msprop:Generator_RowChangedName="ARTICLES_COMMENTSRowChanged" msprop:Generator_TablePropName="ARTICLES_COMMENTS" msprop:Generator_RowDeletingName="ARTICLES_COMMENTSRowDeleting" msprop:Generator_RowChangingName="ARTICLES_COMMENTSRowChanging" msprop:Generator_RowEvHandlerName="ARTICLES_COMMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLES_COMMENTSRowDeleted" msprop:Generator_RowClassName="ARTICLES_COMMENTSRow" msprop:Generator_UserTableName="ARTICLES_COMMENTS" msprop:Generator_RowEvArgName="ARTICLES_COMMENTSRowChangeEvent">
+        <xs:element name="ARTICLES_COMMENTS" msprop:Generator_TableClassName="ARTICLES_COMMENTSDataTable" msprop:Generator_TableVarName="tableARTICLES_COMMENTS" msprop:Generator_TablePropName="ARTICLES_COMMENTS" msprop:Generator_RowDeletingName="ARTICLES_COMMENTSRowDeleting" msprop:Generator_RowChangingName="ARTICLES_COMMENTSRowChanging" msprop:Generator_RowEvHandlerName="ARTICLES_COMMENTSRowChangeEventHandler" msprop:Generator_RowDeletedName="ARTICLES_COMMENTSRowDeleted" msprop:Generator_UserTableName="ARTICLES_COMMENTS" msprop:Generator_RowChangedName="ARTICLES_COMMENTSRowChanged" msprop:Generator_RowEvArgName="ARTICLES_COMMENTSRowChangeEvent" msprop:Generator_RowClassName="ARTICLES_COMMENTSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ART_ID" msprop:Generator_ColumnVarNameInTable="columnART_ID" msprop:Generator_ColumnPropNameInRow="ART_ID" msprop:Generator_ColumnPropNameInTable="ART_IDColumn" msprop:Generator_UserColumnName="ART_ID" type="xs:int" />
@@ -359,7 +336,7 @@ FROM            ARTICLES INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AUTHORS" msprop:Generator_TableClassName="AUTHORSDataTable" msprop:Generator_TableVarName="tableAUTHORS" msprop:Generator_RowChangedName="AUTHORSRowChanged" msprop:Generator_TablePropName="AUTHORS" msprop:Generator_RowDeletingName="AUTHORSRowDeleting" msprop:Generator_RowChangingName="AUTHORSRowChanging" msprop:Generator_RowEvHandlerName="AUTHORSRowChangeEventHandler" msprop:Generator_RowDeletedName="AUTHORSRowDeleted" msprop:Generator_RowClassName="AUTHORSRow" msprop:Generator_UserTableName="AUTHORS" msprop:Generator_RowEvArgName="AUTHORSRowChangeEvent">
+        <xs:element name="AUTHORS" msprop:Generator_TableClassName="AUTHORSDataTable" msprop:Generator_TableVarName="tableAUTHORS" msprop:Generator_TablePropName="AUTHORS" msprop:Generator_RowDeletingName="AUTHORSRowDeleting" msprop:Generator_RowChangingName="AUTHORSRowChanging" msprop:Generator_RowEvHandlerName="AUTHORSRowChangeEventHandler" msprop:Generator_RowDeletedName="AUTHORSRowDeleted" msprop:Generator_UserTableName="AUTHORS" msprop:Generator_RowChangedName="AUTHORSRowChanged" msprop:Generator_RowEvArgName="AUTHORSRowChangeEvent" msprop:Generator_RowClassName="AUTHORSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AU_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAU_ID" msprop:Generator_ColumnPropNameInRow="AU_ID" msprop:Generator_ColumnPropNameInTable="AU_IDColumn" msprop:Generator_UserColumnName="AU_ID" type="xs:int" />
@@ -380,7 +357,7 @@ FROM            ARTICLES INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COMMENTERS" msprop:Generator_TableClassName="COMMENTERSDataTable" msprop:Generator_TableVarName="tableCOMMENTERS" msprop:Generator_RowChangedName="COMMENTERSRowChanged" msprop:Generator_TablePropName="COMMENTERS" msprop:Generator_RowDeletingName="COMMENTERSRowDeleting" msprop:Generator_RowChangingName="COMMENTERSRowChanging" msprop:Generator_RowEvHandlerName="COMMENTERSRowChangeEventHandler" msprop:Generator_RowDeletedName="COMMENTERSRowDeleted" msprop:Generator_RowClassName="COMMENTERSRow" msprop:Generator_UserTableName="COMMENTERS" msprop:Generator_RowEvArgName="COMMENTERSRowChangeEvent">
+        <xs:element name="COMMENTERS" msprop:Generator_TableClassName="COMMENTERSDataTable" msprop:Generator_TableVarName="tableCOMMENTERS" msprop:Generator_TablePropName="COMMENTERS" msprop:Generator_RowDeletingName="COMMENTERSRowDeleting" msprop:Generator_RowChangingName="COMMENTERSRowChanging" msprop:Generator_RowEvHandlerName="COMMENTERSRowChangeEventHandler" msprop:Generator_RowDeletedName="COMMENTERSRowDeleted" msprop:Generator_UserTableName="COMMENTERS" msprop:Generator_RowChangedName="COMMENTERSRowChanged" msprop:Generator_RowEvArgName="COMMENTERSRowChangeEvent" msprop:Generator_RowClassName="COMMENTERSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="COMMENTER_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCOMMENTER_ID" msprop:Generator_ColumnPropNameInRow="COMMENTER_ID" msprop:Generator_ColumnPropNameInTable="COMMENTER_IDColumn" msprop:Generator_UserColumnName="COMMENTER_ID" type="xs:int" />
@@ -391,41 +368,6 @@ FROM            ARTICLES INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="MainWindow" msprop:Generator_TableClassName="MainWindowDataTable" msprop:Generator_TableVarName="tableMainWindow" msprop:Generator_RowChangedName="MainWindowRowChanged" msprop:Generator_TablePropName="MainWindow" msprop:Generator_RowDeletingName="MainWindowRowDeleting" msprop:Generator_RowChangingName="MainWindowRowChanging" msprop:Generator_RowEvHandlerName="MainWindowRowChangeEventHandler" msprop:Generator_RowDeletedName="MainWindowRowDeleted" msprop:Generator_RowClassName="MainWindowRow" msprop:Generator_UserTableName="MainWindow" msprop:Generator_RowEvArgName="MainWindowRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="FIRST_NAME" msprop:Generator_ColumnVarNameInTable="columnFIRST_NAME" msprop:Generator_ColumnPropNameInRow="FIRST_NAME" msprop:Generator_ColumnPropNameInTable="FIRST_NAMEColumn" msprop:Generator_UserColumnName="FIRST_NAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="LAST_NAME" msprop:Generator_ColumnVarNameInTable="columnLAST_NAME" msprop:Generator_ColumnPropNameInRow="LAST_NAME" msprop:Generator_ColumnPropNameInTable="LAST_NAMEColumn" msprop:Generator_UserColumnName="LAST_NAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TITLE" msprop:Generator_ColumnVarNameInTable="columnTITLE" msprop:Generator_ColumnPropNameInRow="TITLE" msprop:Generator_ColumnPropNameInTable="TITLEColumn" msprop:Generator_UserColumnName="TITLE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TEXT" msprop:Generator_ColumnVarNameInTable="columnTEXT" msprop:Generator_ColumnPropNameInRow="TEXT" msprop:Generator_ColumnPropNameInTable="TEXTColumn" msprop:Generator_UserColumnName="TEXT">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TIME" msprop:Generator_ColumnVarNameInTable="columnTIME" msprop:Generator_ColumnPropNameInRow="TIME" msprop:Generator_ColumnPropNameInTable="TIMEColumn" msprop:Generator_UserColumnName="TIME" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -450,11 +392,11 @@ FROM            ARTICLES INNER JOIN
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_ARTICLES_AUTHORS_AUTHORS" msdata:parent="AUTHORS" msdata:child="ARTICLES_AUTHORS" msdata:parentkey="AU_ID" msdata:childkey="AU_ID" msprop:Generator_UserChildTable="ARTICLES_AUTHORS" msprop:Generator_ChildPropName="GetARTICLES_AUTHORSRows" msprop:Generator_UserRelationName="FK_ARTICLES_AUTHORS_AUTHORS" msprop:Generator_ParentPropName="AUTHORSRow" msprop:Generator_RelationVarName="relationFK_ARTICLES_AUTHORS_AUTHORS" msprop:Generator_UserParentTable="AUTHORS" />
-      <msdata:Relationship name="FK_COMMENTS_COMMENTERS" msdata:parent="COMMENTERS" msdata:child="COMMENTS" msdata:parentkey="COMMENTER_ID" msdata:childkey="COMMENTER_ID" msprop:Generator_UserChildTable="COMMENTS" msprop:Generator_ChildPropName="GetCOMMENTSRows" msprop:Generator_UserRelationName="FK_COMMENTS_COMMENTERS" msprop:Generator_ParentPropName="COMMENTERSRow" msprop:Generator_RelationVarName="relationFK_COMMENTS_COMMENTERS" msprop:Generator_UserParentTable="COMMENTERS" />
-      <msdata:Relationship name="FK_ARTICLES_COMMENTS_COMMENTS" msdata:parent="COMMENTS" msdata:child="ARTICLES_COMMENTS" msdata:parentkey="COMM_ID" msdata:childkey="COMM_ID" msprop:Generator_UserChildTable="ARTICLES_COMMENTS" msprop:Generator_ChildPropName="GetARTICLES_COMMENTSRows" msprop:Generator_UserRelationName="FK_ARTICLES_COMMENTS_COMMENTS" msprop:Generator_RelationVarName="relationFK_ARTICLES_COMMENTS_COMMENTS" msprop:Generator_UserParentTable="COMMENTS" msprop:Generator_ParentPropName="COMMENTSRow" />
-      <msdata:Relationship name="FK_ARTICLES_COMMENTS_ARTICLES" msdata:parent="ARTICLES" msdata:child="ARTICLES_COMMENTS" msdata:parentkey="ART_ID" msdata:childkey="ART_ID" msprop:Generator_UserChildTable="ARTICLES_COMMENTS" msprop:Generator_ChildPropName="GetARTICLES_COMMENTSRows" msprop:Generator_UserRelationName="FK_ARTICLES_COMMENTS_ARTICLES" msprop:Generator_RelationVarName="relationFK_ARTICLES_COMMENTS_ARTICLES" msprop:Generator_UserParentTable="ARTICLES" msprop:Generator_ParentPropName="ARTICLESRow" />
-      <msdata:Relationship name="FK_ARTICLES_AUTHORS_ARTICLES" msdata:parent="ARTICLES" msdata:child="ARTICLES_AUTHORS" msdata:parentkey="ART_ID" msdata:childkey="ART_ID" msprop:Generator_UserChildTable="ARTICLES_AUTHORS" msprop:Generator_ChildPropName="GetARTICLES_AUTHORSRows" msprop:Generator_UserRelationName="FK_ARTICLES_AUTHORS_ARTICLES" msprop:Generator_RelationVarName="relationFK_ARTICLES_AUTHORS_ARTICLES" msprop:Generator_UserParentTable="ARTICLES" msprop:Generator_ParentPropName="ARTICLESRow" />
+      <msdata:Relationship name="FK_ARTICLES_AUTHORS_AUTHORS" msdata:parent="AUTHORS" msdata:child="ARTICLES_AUTHORS" msdata:parentkey="AU_ID" msdata:childkey="AU_ID" msprop:Generator_UserChildTable="ARTICLES_AUTHORS" msprop:Generator_ChildPropName="GetARTICLES_AUTHORSRows" msprop:Generator_UserRelationName="FK_ARTICLES_AUTHORS_AUTHORS" msprop:Generator_RelationVarName="relationFK_ARTICLES_AUTHORS_AUTHORS" msprop:Generator_UserParentTable="AUTHORS" msprop:Generator_ParentPropName="AUTHORSRow" />
+      <msdata:Relationship name="FK_COMMENTS_COMMENTERS" msdata:parent="COMMENTERS" msdata:child="COMMENTS" msdata:parentkey="COMMENTER_ID" msdata:childkey="COMMENTER_ID" msprop:Generator_UserChildTable="COMMENTS" msprop:Generator_ChildPropName="GetCOMMENTSRows" msprop:Generator_UserRelationName="FK_COMMENTS_COMMENTERS" msprop:Generator_RelationVarName="relationFK_COMMENTS_COMMENTERS" msprop:Generator_UserParentTable="COMMENTERS" msprop:Generator_ParentPropName="COMMENTERSRow" />
+      <msdata:Relationship name="FK_ARTICLES_COMMENTS_COMMENTS" msdata:parent="COMMENTS" msdata:child="ARTICLES_COMMENTS" msdata:parentkey="COMM_ID" msdata:childkey="COMM_ID" msprop:Generator_UserChildTable="ARTICLES_COMMENTS" msprop:Generator_ChildPropName="GetARTICLES_COMMENTSRows" msprop:Generator_UserRelationName="FK_ARTICLES_COMMENTS_COMMENTS" msprop:Generator_ParentPropName="COMMENTSRow" msprop:Generator_RelationVarName="relationFK_ARTICLES_COMMENTS_COMMENTS" msprop:Generator_UserParentTable="COMMENTS" />
+      <msdata:Relationship name="FK_ARTICLES_COMMENTS_ARTICLES" msdata:parent="ARTICLES" msdata:child="ARTICLES_COMMENTS" msdata:parentkey="ART_ID" msdata:childkey="ART_ID" msprop:Generator_UserChildTable="ARTICLES_COMMENTS" msprop:Generator_ChildPropName="GetARTICLES_COMMENTSRows" msprop:Generator_UserRelationName="FK_ARTICLES_COMMENTS_ARTICLES" msprop:Generator_ParentPropName="ARTICLESRow" msprop:Generator_RelationVarName="relationFK_ARTICLES_COMMENTS_ARTICLES" msprop:Generator_UserParentTable="ARTICLES" />
+      <msdata:Relationship name="FK_ARTICLES_AUTHORS_ARTICLES" msdata:parent="ARTICLES" msdata:child="ARTICLES_AUTHORS" msdata:parentkey="ART_ID" msdata:childkey="ART_ID" msprop:Generator_UserChildTable="ARTICLES_AUTHORS" msprop:Generator_ChildPropName="GetARTICLES_AUTHORSRows" msprop:Generator_UserRelationName="FK_ARTICLES_AUTHORS_ARTICLES" msprop:Generator_ParentPropName="ARTICLESRow" msprop:Generator_RelationVarName="relationFK_ARTICLES_AUTHORS_ARTICLES" msprop:Generator_UserParentTable="ARTICLES" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

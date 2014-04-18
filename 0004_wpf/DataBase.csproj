@@ -69,13 +69,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddArticle.xaml.cs">
+      <DependentUpon>AddArticle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commenter.cs" />
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel.cs" />
     <Page Include="AddArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpenArticle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,8 +106,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddArticle.xaml.cs">
-      <DependentUpon>AddArticle.xaml</DependentUpon>
+    <Compile Include="Example.xaml.cs">
+      <DependentUpon>Example.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OpenArticle.xaml.cs">
+      <DependentUpon>OpenArticle.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddAuthor.xaml.cs">
       <DependentUpon>AddAuthor.xaml</DependentUpon>

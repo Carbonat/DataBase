@@ -20,15 +20,30 @@ namespace _0004_wpf
                 tb.Foreground = Brushes.Black;
             }
         }
-
         public void TextBoxLostFocus(TextBox tb, string defaultValue)
         {
             if (string.IsNullOrEmpty(tb.Text))
             {
-                tb.Text = defaultValue;
                 tb.Foreground = Brushes.Gray;
+                tb.Text = defaultValue;
             }
         }
+        public void TextBoxTextChanged(TextBox tb, Label lb, int maxLength)
+        {
+            if (lb != null)
+            {
+                if (tb.Foreground == Brushes.Gray)
+                {
+                    lb.Content = maxLength;
+                }
+                else
+                {
+                    string str = tb.Text;
+                    lb.Content = maxLength - str.Length;
+                }
+            }
+        }
+
 
         public void RichTextBoxGotFocus(RichTextBox rtb, string defaultValue)
         {
@@ -45,7 +60,6 @@ namespace _0004_wpf
                 rtb.Foreground = Brushes.Black;
             }
         }
-
         public void RichTextBoxLostFocus(RichTextBox rtb, string defaultValue)
         {
             TextRange tr = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
@@ -61,6 +75,32 @@ namespace _0004_wpf
                 rtb.Document = document;
                 rtb.Foreground = Brushes.Gray;
             }
+        }
+        public void DatePickerSelectedDateChanged(DatePicker dp)
+        {
+            if (!CheckSelectedDate(dp))
+                dp.SelectedDate = DateTime.Today;
+        }
+       
+        public void DatePickerSelectedDateChanged(DatePicker dp, DateTime dateStart)
+        {
+            if (!CheckSelectedDate(dp, dateStart))
+                dp.SelectedDate = DateTime.Today;
+            dp.DisplayDateStart = dateStart;
+        }
+        private bool CheckSelectedDate(DatePicker dp)
+        {
+            DateTime? _date = dp.SelectedDate;
+            if (_date == null || _date > DateTime.Today)
+                return false;
+            return true;
+        }
+        private bool CheckSelectedDate(DatePicker dp, DateTime dateStart)
+        {
+            DateTime? _date = dp.SelectedDate;
+            if (_date == null || _date > DateTime.Today || _date < dateStart)
+                return false;
+            return true;
         }
     }
 }

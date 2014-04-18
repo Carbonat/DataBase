@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace _0004_wpf
 {
-    public class Author
+    class Commenter
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public int Id { get; set; }
+        public string Name { get; set; }
         public override string ToString()
         {
-            return FirstName + " " + LastName;
+            return Name;
         }
     }
 }
