@@ -20,7 +20,7 @@
                 <MenuItem x:Name="menu_addCommenter" Header="Коментатора" Click="menu_addCommenter_Click"/>
                 <MenuItem x:Name="menu_addComment" Header="Коментар" Click="menu_addComment_Click"/>
             </MenuItem>
-            <MenuItem x:Name="menu_find" Header="Пошук"/>
+            <MenuItem x:Name="menu_find" Header="Пошук" Click="menu_find_Click"/>
             <MenuItem x:Name="menu_stat" Header="Статистика"/>
             <MenuItem x:Name="menu_info" Header="Довідка">
                 <MenuItem x:Name="menu_help" Header="Допомога"/>

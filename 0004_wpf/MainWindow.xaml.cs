@@ -25,6 +25,7 @@ namespace _0004_wpf
         AddAuthor addAuthor;
         AddCommenter addCommenter;
         AddComment addComment;
+        Search search;
 
         List<Article> articles;
 
@@ -73,9 +74,9 @@ namespace _0004_wpf
                 {
                     ar = new Article();
                     ar.Id = Convert.ToInt32(row["ART_ID"]);
-                    ar.Title = row["TITLE"].ToString();
-                    ar.Creator = new Author { FirstName = row["FIRST_NAME"].ToString(), LastName = row["LAST_NAME"].ToString() };
-                    ar.Text = row["TEXT"].ToString();
+                    ar.Title = row["TITLE"].ToString().Trim();
+                    ar.Creator = new Author { FirstName = row["FIRST_NAME"].ToString().Trim(), LastName = row["LAST_NAME"].ToString().Trim() };
+                    ar.Text = row["TEXT"].ToString().Trim();
                     ar.Date = Convert.ToDateTime(row["TIME"]);
                     articles.Add(ar);
                 }
@@ -106,6 +107,12 @@ namespace _0004_wpf
             Article ar = lv.SelectedItem as Article;
             openArticle = new OpenArticle(ar);
             openArticle.Show();
+        }
+
+        private void menu_find_Click(object sender, RoutedEventArgs e)
+        {
+            search = new Search();
+            search.Show();
         }
     }
 }

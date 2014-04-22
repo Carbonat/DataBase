@@ -112,5 +112,9 @@ namespace _0004_wpf
             get { return "Довідка"; }
         }
         public DateTime DateStart { get; set; }
+        public string DefaultFindQuery
+        {
+            get { return "Пошук"; }
+        }
     }
 }

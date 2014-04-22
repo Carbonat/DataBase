@@ -19,56 +19,59 @@
 ? додати прив'язку до клавіш (стрілки, Del, F1 - довідка даного вікна, Tab - перемикання між полями введення, Crtl + R - оновлення списку)
 
 ?Головне вікно:
-+- зчитувати всю таблицю Articles і заносити її у List<Article>
-+- зчитувати таблицю Author і вносити до елементів List<Article> авторів
++ зчитувати всю таблицю Articles і заносити її у List<Article> 
++ зчитувати таблицю Author і вносити до елементів List<Article> авторів
 +- додавати до ListView лише зазначені в стовпцях дані
------------------ відображати кількість коментарів
-- DoubleClick - відкриття статті за ART_ID у новому вікні
++ DoubleClick - відкриття статті за ART_ID у новому вікні
 - після додавання, видалення чи зміни статті оновити список
-+(Auto)- навігація по списку за допомогою клавіш-стрілок
++ (Auto)- навігація по списку за допомогою клавіш-стрілок
 - видалення натиском на Del (і висвічувати попередження)
 - текст статті переносити (http://professorweb.ru/my/WPF/UI_WPF/level22/22_2.php) і відображати обмежену кількість ряків
 - довідка
 
-?Додавання статті:
-- вибів автора зі списку або створення нового автора вибравши "галочку" (!!! починаєш вводити і випадає внизу список в графі "ім'я" і відразу співставляється із прізвищем (якщо існує))
-- вказати кількість символів, що залишилися для заголовку / статті
-- прибрати ListView коментарів
-- довідка
+									+Додавання статті:
++ вибів автора зі списку
++ вказати кількість символів, що залишилися для заголовку / імені
++ прибрати ListView коментарів
++ довідка
 
-?Додавання автора:
-- перевірка вже існуючого (завантаження всього списку авторів)
-- довідка
+									+Додавання автора:
++ перевірка вже існуючого (завантаження всього списку авторів)
++ вказати кількість символів
++ довідка
 
-?Додавання коментатора:
-- перевірка вже існуючого
-- довідка
+									+Додавання коментатора:
++ перевірка вже існуючого
++ вказати кількість символів
++ заборонити зміни розміру
++ довідка
 
-?Додавання коментаря:
-- перевірка дати (не раніше написання статті)
-- вибір статті
-- вибір / додавання автора
-- вказати кількість символів, що залишилися для коментаря
-- довідка
+									+Додавання коментаря:
++ перевірка дати (не раніше написання статті)
++ вибір статті
++ вибір автора
++ вказати кількість символів, що залишилися для коментаря
++ довідка
 
-?Відкрита стаття:
-- поля з можливістю виділення тексту:
+									+Відкрита стаття:
++ поля з можливістю виділення тексту:
 	- ім'я / прізвище автора
 	- заголовок
 	- дата
 	- текст
-- ListView з коментарями 
-- довідка
++ ListView з коментарями 
++ довідка
 
-?Пошук
-- вибір критерія пошуку:
-	- автори
-	- коментатори
-	- дата
-	- текст з статті
-	- текст з коментаря
-- виведення результату у ListView (аналогічно як у головному вікні)
-- довідка
+									+Пошук
++ вибір критерія пошуку:
+	+ автори
+	+ коментатори
+	+ дата
+	+ текст з статті
+	+ текст з коментаря
+	+ заголовок
++ виведення результату у ListView (аналогічно як у головному вікні)
++ довідка
 
 ?Статистика:
 - кількість статтей у кожного автора (графік)
@@ -78,6 +81,36 @@
 
 
 
+SELECT ARTICLES.ART_ID, COMMENTS.TIME AS 'COMM_TIME', ARTICLES.TIME AS 'ART_TIME', ARTICLES.TITLE, COMMENTS.TEXT, COMMENTERS.NICKNAME, AUTHORS.FIRST_NAME, AUTHORS.LAST_NAME 
+FROM [DBNewspaper].[dbo].[ARTICLES], [DBNewspaper].[dbo].[COMMENTS], [DBNewspaper].[dbo].[COMMENTERS], [DBNewspaper].[dbo].[AUTHORS], [DBNewspaper].[dbo].[ARTICLES_AUTHORS], [DBNewspaper].[dbo].[ARTICLES_COMMENTS]
+WHERE COMMENTS.COMMENTER_ID=COMMENTERS.COMMENTER_ID AND 
+      COMMENTS.COMM_ID=[ARTICLES_COMMENTS].COMM_ID AND 
+      ARTICLES_COMMENTS.ART_ID=ARTICLES.ART_ID AND 
+      ARTICLES.ART_ID=ARTICLES_AUTHORS.ART_ID AND 
+      ARTICLES_AUTHORS.AU_ID=AUTHORS.AU_ID                                                           Title = articles[i].Title,
+                                                            Text = articles[i].Text,
+                                                            Id = articles[i].Id,
+SELECT ARTICLES.ART_ID, ARTICLES.TITLE, ARTICLES.TIME, AUTHORS.FIRST_NAME, AUTHORS.LAST_NAME
+FROM [DBNewspaper].[dbo].[ARTICLES], [DBNewspaper].[dbo].[AUTHORS], [DBNewspaper].[dbo].[ARTICLES_AUTHORS]
+WHERE ARTICLES.ART_ID=ARTICLES_AUTHORS.ART_ID AND ARTICLES_AUTHORS.AU_ID=AUTHORS.AU_ID AND ARTICLES.TIME = '2014.03.24 00:00:00'                                                            Creator = articles[i].Creator,
+                                                            ReturnCreatorName = articles[i].ReturnCreatorName} 
+
+
+
+
+
+
+
+
+
+
+
 Обмеження
 - ARTICLES TITLE 150
-- 
+- AUTHORS FIRST_NAME 50
+- AUTHORS LAST_NAME 50
+- COMMENTERS NICKNAME 50
+- COMMENTS TEXT 1000
+
+NULL
+- ARTICLES

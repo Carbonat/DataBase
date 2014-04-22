@@ -20,7 +20,7 @@
         <Button x:Name="saveButton" Grid.Column="4" Margin="5,17,5,0" Content="Зберегти" FontSize="14" Height="23" VerticalAlignment="Top" Click="saveButton_Click"/>
         <Label x:Name="symNumFirstName" Foreground="Gray" Content="{Binding MaxLengthAuthName, Mode=OneWay}" Margin="0,17,0,0" RenderTransformOrigin="0,0.308" Grid.Column="1" Height="26" VerticalAlignment="Top"/>
         <Label x:Name="symNumLastName" Content="{Binding MaxLengthAuthName, Mode=OneWay}" Foreground="Gray" Grid.Column="3" Margin="0,17,0,0" Height="25" VerticalAlignment="Top"/>
-        <Button x:Name="helpButton" Content="?" Grid.Column="4" Click="helpButton_Click" Foreground="Gray" BorderBrush="White" Background="White" Margin="70,0,2,0" Height="16" VerticalAlignment="Top"/>
+        <Button x:Name="helpButton" Content="?" Grid.Column="4" Click="helpButton_Click" Foreground="Gray" BorderBrush="White" Background="White" Margin="70,0,2,0" Height="17" VerticalAlignment="Top"/>
 
 
     </Grid>
